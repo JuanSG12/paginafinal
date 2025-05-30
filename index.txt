@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Directorio de Hojas de Vida</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <header>
+    <h1>Hojas de Vida Digitales</h1>
+    <input type="text" id="buscador" placeholder="Buscar por nombre o inicial..." />
+  </header>
+  <main id="lista-perfiles"></main>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

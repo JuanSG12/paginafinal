@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Perfil</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html">← Volver</a>
+    <h1 id="nombre"></h1>
+    <img id="foto" src="" alt="Foto" />
+    <p id="resumen"></p>
+  </header>
+  <section id="contacto"></section>
+  <section id="experiencia"></section>
+  <section id="estudios"></section>
+  <script src="data.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const persona = personas.find(p => p.id === id);
+    if (persona) {
+      document.getElementById("nombre").textContent = persona.nombre;
+      document.getElementById("foto").src = persona.foto;
+      document.getElementById("resumen").textContent = persona.resumen;
+      document.getElementById("contacto").innerHTML = `
+        <h2>Contacto</h2>
+        <ul>
+          <li><strong>Email:</strong> ${persona.contacto.email}</li>
+          <li><strong>Teléfono:</strong> ${persona.contacto.telefono}</li>
+          <li><strong>Ubicación:</strong> ${persona.contacto.ubicacion}</li>
+        </ul>
+      `;
+      document.getElementById("experiencia").innerHTML = `
+        <h2>Experiencia</h2>
+        <ul>${persona.experiencia.map(exp => `<li>${exp.cargo} en ${exp.empresa} (${exp.periodo})</li>`).join('')}</ul>
+      `;
+      document.getElementById("estudios").innerHTML = `
+        <h2>Estudios</h2>
+        <ul>${persona.estudios.map(ed => `<li>${ed.titulo} - ${ed.institucion} (${ed.año})</li>`).join('')}</ul>
+      `;
+    } else {
+      document.body.innerHTML = "<p>Perfil no encontrado.</p>";
+    }
+  </script>
+</body>
+</html>
