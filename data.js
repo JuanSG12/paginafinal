@@ -1,116 +1,56 @@
 const profiles = [
   {
-    nombre: "Ana Torres",
-    iniciales: "AT",
-    foto: "img/ana.jpg",
-    profesion: "Desarrolladora Full Stack",
-    contacto: {
-      email: "ana.torres@example.com",
-      telefono: "+57 301 123 4567",
-      linkedin: "https://linkedin.com/in/anatorres"
-    },
-    resumen: "Apasionada por el desarrollo web moderno. Experiencia con React, Node.js y MongoDB.",
-    educacion: [
-      { grado: "Ingeniería de Sistemas", institucion: "Universidad de los Andes", año: "2019" }
-    ],
-    experiencia: [
-      { cargo: "Full Stack Developer", empresa: "TechSolutions", años: "2020-2023" }
-    ],
-    habilidades: ["HTML", "CSS", "JavaScript", "React", "Node.js"]
+    name: "Ana Martínez",
+    initials: "AM",
+    contact: "ana.martinez@gmail.com",
+    education: "Ingeniería de Sistemas - Universidad Nacional",
+    experience: "3 años como desarrolladora FrontEnd",
+    skills: ["HTML", "CSS", "JavaScript"],
+    photo: "img/ana.jpg"
   },
   {
-    nombre: "Brayan López",
-    iniciales: "BL",
-    foto: "img/brayan.jpg",
-    profesion: "Analista de Datos",
-    contacto: {
-      email: "brayan.lopez@example.com",
-      telefono: "+57 302 987 6543",
-      linkedin: "https://linkedin.com/in/brayanlopez"
-    },
-    resumen: "Especialista en análisis y visualización de datos. Dominio en Python, SQL y Power BI.",
-    educacion: [
-      { grado: "Estadística", institucion: "Universidad Nacional", año: "2020" }
-    ],
-    experiencia: [
-      { cargo: "Data Analyst", empresa: "DataCorp", años: "2021-2024" }
-    ],
-    habilidades: ["Python", "SQL", "Excel", "Power BI", "Tableau"]
+    name: "Luis Gómez",
+    initials: "LG",
+    contact: "luis.gomez@hotmail.com",
+    education: "Tecnología en Desarrollo de Software - SENA",
+    experience: "2 años como analista de datos",
+    skills: ["Python", "SQL", "Power BI"],
+    photo: "img/luis.jpg"
   },
   {
-    nombre: "Camila Rodríguez",
-    iniciales: "CR",
-    foto: "img/camila.jpg",
-    profesion: "Diseñadora UX/UI",
-    contacto: {
-      email: "camila.rodriguez@example.com",
-      telefono: "+57 313 654 7890",
-      linkedin: "https://linkedin.com/in/camilarodriguez"
-    },
-    resumen: "Diseñadora enfocada en la experiencia de usuario. Fuerte sentido estético y conocimiento en Figma y Adobe XD.",
-    educacion: [
-      { grado: "Diseño Gráfico", institucion: "Pontificia Universidad Javeriana", año: "2021" }
-    ],
-    experiencia: [
-      { cargo: "UX Designer", empresa: "Creativa Studio", años: "2022-2024" }
-    ],
-    habilidades: ["Figma", "Adobe XD", "Illustrator", "HTML", "CSS"]
+    name: "María Rodríguez",
+    initials: "MR",
+    contact: "maria.rodriguez@outlook.com",
+    education: "Ingeniería de Sistemas - Universidad de los Andes",
+    experience: "5 años como desarrolladora Backend",
+    skills: ["Java", "Spring", "MySQL"],
+    photo: "img/maria.jpg"
   },
   {
-    nombre: "Daniela Gómez",
-    iniciales: "DG",
-    foto: "img/daniela.jpg",
-    profesion: "Ingeniera de Software",
-    contacto: {
-      email: "daniela.gomez@example.com",
-      telefono: "+57 320 123 7890",
-      linkedin: "https://linkedin.com/in/danielagomez"
-    },
-    resumen: "Con enfoque en desarrollo backend y arquitectura de software. Dominio en Java, Spring y bases de datos relacionales.",
-    educacion: [
-      { grado: "Ingeniería de Software", institucion: "Universidad EAFIT", año: "2018" }
-    ],
-    experiencia: [
-      { cargo: "Backend Developer", empresa: "SoftDev", años: "2019-2024" }
-    ],
-    habilidades: ["Java", "Spring", "MySQL", "Docker", "Git"]
+    name: "Carlos Pérez",
+    initials: "CP",
+    contact: "carlos.perez@gmail.com",
+    education: "Ingeniería Electrónica - Universidad Javeriana",
+    experience: "4 años en desarrollo de hardware embebido",
+    skills: ["C", "C++", "Arduino"],
+    photo: "img/carlos.jpg"
   },
   {
-    nombre: "Esteban Ríos",
-    iniciales: "ER",
-    foto: "img/esteban.jpg",
-    profesion: "Administrador de Proyectos IT",
-    contacto: {
-      email: "esteban.rios@example.com",
-      telefono: "+57 315 987 3210",
-      linkedin: "https://linkedin.com/in/estebanrios"
-    },
-    resumen: "Gestor de proyectos con certificación PMP y experiencia en metodologías ágiles.",
-    educacion: [
-      { grado: "Administración de Empresas", institucion: "Universidad del Rosario", año: "2017" }
-    ],
-    experiencia: [
-      { cargo: "Project Manager", empresa: "Innovatech", años: "2018-2024" }
-    ],
-    habilidades: ["Scrum", "Kanban", "JIRA", "Trello", "Liderazgo"]
+    name: "Laura Sánchez",
+    initials: "LS",
+    contact: "laura.sanchez@gmail.com",
+    education: "Diseño Gráfico - Universidad Tadeo",
+    experience: "6 años como diseñadora UX/UI",
+    skills: ["Figma", "Adobe XD", "HTML", "CSS"],
+    photo: "img/laura.jpg"
   },
   {
-    nombre: "Felipe Navarro",
-    iniciales: "FN",
-    foto: "img/felipe.jpg",
-    profesion: "Tester QA",
-    contacto: {
-      email: "felipe.navarro@example.com",
-      telefono: "+57 300 555 6677",
-      linkedin: "https://linkedin.com/in/felipenavarro"
-    },
-    resumen: "Encargado de asegurar la calidad del software mediante pruebas automatizadas y manuales.",
-    educacion: [
-      { grado: "Tecnología en Sistemas", institucion: "SENA", año: "2020" }
-    ],
-    experiencia: [
-      { cargo: "QA Tester", empresa: "SmartApps", años: "2021-2024" }
-    ],
-    habilidades: ["Selenium", "Postman", "Cypress", "JUnit", "Detección de errores"]
+    name: "David Torres",
+    initials: "DT",
+    contact: "david.torres@gmail.com",
+    education: "Ingeniería Mecatrónica - Universidad Distrital",
+    experience: "3 años como desarrollador de software embebido",
+    skills: ["Python", "Raspberry Pi", "Node.js"],
+    photo: "img/david.jpg"
   }
 ];

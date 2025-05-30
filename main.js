@@ -1,39 +1,33 @@
-// Función para renderizar los perfiles en el contenedor
-function renderProfiles(profiles) {
-  const container = document.getElementById("profiles-container");
-  container.innerHTML = ""; // limpia contenido anterior
+function mostrarPerfiles(lista) {
+  const contenedor = document.getElementById("profiles-container");
+  contenedor.innerHTML = "";
 
-  if (profiles.length === 0) {
-    container.innerHTML = "<p>No se encontraron perfiles.</p>";
-    return;
-  }
+  lista.forEach(perfil => {
+    const tarjeta = document.createElement("div");
+    tarjeta.className = "tarjeta";
 
-  profiles.forEach(profile => {
-    const card = document.createElement("div");
-    card.className = "profile-card";
-    card.innerHTML = `
-      <img src="${profile.photo}" alt="Foto de ${profile.name}" class="profile-photo"/>
-      <h3>${profile.name} (${profile.initials})</h3>
-      <p><strong>Contacto:</strong> ${profile.contact}</p>
-      <p><strong>Educación:</strong> ${profile.education}</p>
-      <p><strong>Experiencia:</strong> ${profile.experience}</p>
-      <p><strong>Habilidades:</strong> ${profile.skills.join(", ")}</p>
+    tarjeta.innerHTML = `
+      <img src="${perfil.photo}" alt="${perfil.name}" class="foto" />
+      <h2>${perfil.name}</h2>
+      <p><strong>Iniciales:</strong> ${perfil.initials}</p>
+      <p><strong>Contacto:</strong> ${perfil.contact}</p>
+      <p><strong>Educación:</strong> ${perfil.education}</p>
+      <p><strong>Experiencia:</strong> ${perfil.experience}</p>
+      <p><strong>Habilidades:</strong> ${perfil.skills.join(", ")}</p>
     `;
-    container.appendChild(card);
+
+    contenedor.appendChild(tarjeta);
   });
 }
 
-// Evento que se dispara al escribir en el input de búsqueda
-document.getElementById("search").addEventListener("input", function () {
-  const query = this.value.trim().toLowerCase();
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarPerfiles(profiles);
 
-  const filtered = profiles.filter(profile => {
-    return profile.name.toLowerCase().includes(query) ||
-           profile.initials.toLowerCase().includes(query);
+  document.getElementById("search").addEventListener("input", function () {
+    const valor = this.value.toLowerCase();
+    const filtrados = profiles.filter(p =>
+      p.name.toLowerCase().includes(valor) || p.initials.toLowerCase().includes(valor)
+    );
+    mostrarPerfiles(filtrados);
   });
-
-  renderProfiles(filtered);
 });
-
-// Mostrar todos los perfiles al cargar la página
-renderProfiles(profiles);
