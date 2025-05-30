@@ -1,12 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("lista-perfiles");
   const inputBusqueda = document.getElementById("buscador");
+  const filtroSkill = document.getElementById("filtro-skill");
+  const toggleTema = document.getElementById("toggle-tema");
 
-  if (!contenedor || !inputBusqueda || typeof profiles === "undefined") {
+  // Verifica que existan los elementos
+  if (!contenedor || !inputBusqueda || !filtroSkill || !toggleTema || typeof profiles === "undefined") {
     console.error("Error: Elementos o datos no disponibles.");
     return;
   }
 
+  // Función para renderizar perfiles
   function renderProfiles(lista) {
     contenedor.innerHTML = "";
 
@@ -24,30 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3>${perfil.title}</h3>
         <p class="bio">${perfil.bio}</p>
         <p class="skills"><strong>Habilidades:</strong> ${perfil.skills.join(", ")}</p>
+        <div class="card-buttons">
+          <button onclick="alert('Contacto de ${perfil.name}')">📧 Contactar</button>
+          <button onclick="alert('CV de ${perfil.name}')">📄 Ver CV</button>
+        </div>
       `;
-      contenedor.appendChild(card);
-    });
-  }
-
-  // Mostrar todos los perfiles al cargar la página
-  renderProfiles(profiles);
-
-  function buscarPerfiles() {
-    const texto = inputBusqueda.value.trim().toLowerCase();
-    const filtrados = profiles.filter(perfil =>
-      perfil.name.toLowerCase().includes(texto) ||
-      perfil.initials.toLowerCase().includes(texto)
-    );
-    renderProfiles(filtrados);
-  }
-
-  // Búsqueda en vivo
-  inputBusqueda.addEventListener("input", buscarPerfiles);
-
-  // Búsqueda con Enter (opcional)
-  inputBusqueda.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      buscarPerfiles();
-    }
-  });
-});
+      // Agregar evento para lightbox en la imagen
+      card.querySelector("img").addEventListener("click", () => {
+        const overlay = document.createElement("div");
+        overlay.className = "lightbox";
+        overlay.innerHTML = `<img
+::contentReference[oaicite:0]{index=0}
+ 

@@ -2,20 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perfiles Profesionales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Directorio de Perfiles</title>
   <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
   <header>
-    <h1>Directorio de talento</h1>
-<input type="text" id="buscador" placeholder="Buscar por nombre o inicial..." />
-<main id="lista-perfiles"></main>
-
-  <main id="lista-perfiles"></main>
-
-  <!-- Asegúrate de que las rutas sean correctas -->
-<script src="data.js" defer></script>
-<script src="main.js" defer></script>
+    <h1>Directorio de Perfiles</h1>
+    <input type="text" id="buscador" placeholder="Buscar por nombre o iniciales..." />
+    <select id="filtro-skill">
+      <option value="">Todas las habilidades</option>
+      <option value="HTML">HTML</option>
+      <option value="CSS">CSS</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="Node.js">Node.js</option>
+      <option value="Python">Python</option>
+      <option value="SQL">SQL</option>
+      <option value="Power BI">Power BI</option>
+      <option value="Figma">Figma</option>
+      <option value="Sketch">Sketch</option>
+      <option value="Adobe XD">Adobe XD</option>
+      <option value="React Native">React Native</option>
+      <option value="Flutter">Flutter</option>
+      <option value="Firebase">Firebase</option>
+      <option value="Firewall">Firewall</option>
+      <option value="Pentesting">Pentesting</option>
+      <option value="SIEM">SIEM</option>
+      <option value="Linux">Linux</option>
+      <option value="Windows Server">Windows Server</option>
+      <option value="Azure">Azure</option>
+    </select>
+    <button id="toggle-tema">🌙 Cambiar tema</button>
+  </header>
+  <main>
+    <div id="lista-perfiles"></div>
+  </main>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
