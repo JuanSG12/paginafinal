@@ -1,45 +1,56 @@
-// main.js
 document.addEventListener("DOMContentLoaded", () => {
-  const listaPerfiles = document.getElementById("lista-perfiles");
-  const buscador = document.getElementById("buscador");
+  const contenedor = document.getElementById("lista-perfiles");
+  const inputBusqueda = document.getElementById("buscador");
 
-  if (!listaPerfiles || !buscador) {
-    console.error("No se encontraron los elementos necesarios en el DOM.");
+  // Verifica que existan los elementos
+  if (!contenedor || !inputBusqueda || typeof profiles === "undefined") {
+    console.error("Error: Elementos o datos no disponibles.");
     return;
   }
 
-  function renderProfiles(perfiles) {
-    listaPerfiles.innerHTML = "";
-    if (perfiles.length === 0) {
-      listaPerfiles.innerHTML = "<p>No se encontraron perfiles.</p>";
+  // Función para renderizar perfiles
+  function renderProfiles(lista) {
+    contenedor.innerHTML = "";
+
+    if (lista.length === 0) {
+      contenedor.innerHTML = '<p class="no-result">No se encontraron resultados.</p>';
       return;
     }
 
-    perfiles.forEach(perfil => {
-      const div = document.createElement("div");
-      div.classList.add("perfil");
-      div.innerHTML = `
+    lista.forEach(perfil => {
+      const card = document.createElement("div");
+      card.className = "card fade-in";
+      card.innerHTML = `
+        <img src="${perfil.image}" alt="${perfil.name}">
         <h2>${perfil.name}</h2>
-        <p><strong>Título:</strong> ${perfil.title}</p>
-        <p>${perfil.bio}</p>
-        <p><strong>Skills:</strong> ${perfil.skills.join(", ")}</p>
+        <h3>${perfil.title}</h3>
+        <p class="bio">${perfil.bio}</p>
+        <p class="skills"><strong>Habilidades:</strong> ${perfil.skills.join(", ")}</p>
       `;
-      listaPerfiles.appendChild(div);
+      contenedor.appendChild(card);
     });
   }
 
-  function buscar(event) {
-    const texto = event.target.value.toLowerCase().trim();
-    const filtrados = profiles.filter(p =>
-      p.name.toLowerCase().includes(texto) ||
-      p.initials.toLowerCase().includes(texto)
+  // Mostrar todos los perfiles al inicio
+  renderProfiles(profiles);
+
+  // Función para filtrar y buscar
+  function buscarPerfiles() {
+    const texto = inputBusqueda.value.trim().toLowerCase();
+    const filtrados = profiles.filter(perfil =>
+      perfil.name.toLowerCase().includes(texto) ||
+      perfil.initials.toLowerCase().includes(texto)
     );
     renderProfiles(filtrados);
   }
 
-  // Mostrar todos los perfiles al cargar la página
-  renderProfiles(profiles);
+  // Buscar en vivo
+  inputBusqueda.addEventListener("input", buscarPerfiles);
 
-  // Buscar en vivo mientras se escribe
-  buscador.addEventListener("input", buscar);
+  // Buscar con Enter
+  inputBusqueda.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      buscarPerfiles();
+    }
+  });
 });
