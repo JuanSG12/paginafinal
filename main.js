@@ -1,48 +1,40 @@
+// main.js
 document.addEventListener("DOMContentLoaded", () => {
   const listaPerfiles = document.getElementById("lista-perfiles");
   const buscador = document.getElementById("buscador");
 
   function renderProfiles(perfiles) {
     listaPerfiles.innerHTML = "";
-
     if (perfiles.length === 0) {
-      listaPerfiles.innerHTML = `<p class="no-result">No se encontraron coincidencias.</p>`;
+      listaPerfiles.innerHTML = "<p>No se encontraron perfiles.</p>";
       return;
     }
 
     perfiles.forEach(perfil => {
-      const card = document.createElement("div");
-      card.className = "card fade-in";
-
-      card.innerHTML = `
-        <img src="${perfil.image}" alt="${perfil.name}" />
+      const div = document.createElement("div");
+      div.classList.add("perfil");
+      div.innerHTML = `
         <h2>${perfil.name}</h2>
-        <h3>${perfil.title}</h3>
-        <p class="bio">${perfil.bio}</p>
-        <p class="skills"><strong>Habilidades:</strong> ${perfil.skills.join(", ")}</p>
+        <p><strong>Título:</strong> ${perfil.title}</p>
+        <p>${perfil.bio}</p>
+        <p><strong>Skills:</strong> ${perfil.skills.join(", ")}</p>
       `;
-
-      listaPerfiles.appendChild(card);
+      listaPerfiles.appendChild(div);
     });
   }
 
-  function filtrarPerfiles(valor) {
-    const filtro = valor.toLowerCase();
-    const resultados = profiles.filter(p =>
-      p.name.toLowerCase().includes(filtro) || p.initials.toLowerCase().includes(filtro)
+  function buscar(event) {
+    const texto = event.target.value.toLowerCase().trim();
+    const filtrados = profiles.filter(p => 
+      p.name.toLowerCase().includes(texto) || 
+      p.initials.toLowerCase().includes(texto)
     );
-    renderProfiles(resultados);
+    renderProfiles(filtrados);
   }
 
-  buscador.addEventListener("input", (e) => {
-    filtrarPerfiles(e.target.value);
-  });
+  // Mostrar todos al cargar
+  renderProfiles(profiles);
 
-  buscador.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      filtrarPerfiles(buscador.value);
-    }
-  });
-
-  renderProfiles(profiles); // renderizar al cargar
+  // Escuchar cambios en el input (búsqueda en vivo)
+  buscador.addEventListener("input", buscar);
 });
