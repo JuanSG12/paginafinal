@@ -2,13 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("lista-perfiles");
   const inputBusqueda = document.getElementById("buscador");
 
-  // Verifica que existan los elementos
   if (!contenedor || !inputBusqueda || typeof profiles === "undefined") {
     console.error("Error: Elementos o datos no disponibles.");
     return;
   }
 
-  // Función para renderizar perfiles
   function renderProfiles(lista) {
     contenedor.innerHTML = "";
 
@@ -31,10 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Mostrar todos los perfiles al inicio
+  // Mostrar todos los perfiles al cargar la página
   renderProfiles(profiles);
 
-  // Función para filtrar y buscar
   function buscarPerfiles() {
     const texto = inputBusqueda.value.trim().toLowerCase();
     const filtrados = profiles.filter(perfil =>
@@ -44,10 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProfiles(filtrados);
   }
 
-  // Buscar en vivo
+  // Búsqueda en vivo
   inputBusqueda.addEventListener("input", buscarPerfiles);
 
-  // Buscar con Enter
+  // Búsqueda con Enter (opcional)
   inputBusqueda.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       buscarPerfiles();
