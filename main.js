@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const listaPerfiles = document.getElementById("lista-perfiles");
   const buscador = document.getElementById("buscador");
 
+  if (!listaPerfiles || !buscador) {
+    console.error("No se encontraron los elementos necesarios en el DOM.");
+    return;
+  }
+
   function renderProfiles(perfiles) {
     listaPerfiles.innerHTML = "";
     if (perfiles.length === 0) {
@@ -25,16 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function buscar(event) {
     const texto = event.target.value.toLowerCase().trim();
-    const filtrados = profiles.filter(p => 
-      p.name.toLowerCase().includes(texto) || 
+    const filtrados = profiles.filter(p =>
+      p.name.toLowerCase().includes(texto) ||
       p.initials.toLowerCase().includes(texto)
     );
     renderProfiles(filtrados);
   }
 
-  // Mostrar todos al cargar
+  // Mostrar todos los perfiles al cargar la página
   renderProfiles(profiles);
 
-  // Escuchar cambios en el input (búsqueda en vivo)
+  // Buscar en vivo mientras se escribe
   buscador.addEventListener("input", buscar);
 });
