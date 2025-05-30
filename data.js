@@ -1,56 +1,50 @@
 const profiles = [
   {
-    name: "Ana Martínez",
-    initials: "AM",
-    contact: "ana.martinez@gmail.com",
-    education: "Ingeniería de Sistemas - Universidad Nacional",
-    experience: "3 años como desarrolladora FrontEnd",
-    skills: ["HTML", "CSS", "JavaScript"],
-    photo: "img/ana.jpg"
+    name: "Ana Gómez",
+    initials: "AG",
+    title: "Ingeniera de Software",
+    bio: "Desarrolladora web con experiencia en frontend y backend.",
+    skills: ["HTML", "CSS", "JavaScript", "Node.js"],
+    image: "img/ana.jpg"
   },
   {
-    name: "Luis Gómez",
-    initials: "LG",
-    contact: "luis.gomez@hotmail.com",
-    education: "Tecnología en Desarrollo de Software - SENA",
-    experience: "2 años como analista de datos",
+    name: "Luis Martínez",
+    initials: "LM",
+    title: "Analista de Datos",
+    bio: "Apasionado por encontrar patrones y transformar datos en decisiones.",
     skills: ["Python", "SQL", "Power BI"],
-    photo: "img/luis.jpg"
-  },
-  {
-    name: "María Rodríguez",
-    initials: "MR",
-    contact: "maria.rodriguez@outlook.com",
-    education: "Ingeniería de Sistemas - Universidad de los Andes",
-    experience: "5 años como desarrolladora Backend",
-    skills: ["Java", "Spring", "MySQL"],
-    photo: "img/maria.jpg"
+    image: "img/luis.jpg"
   },
   {
     name: "Carlos Pérez",
     initials: "CP",
-    contact: "carlos.perez@gmail.com",
-    education: "Ingeniería Electrónica - Universidad Javeriana",
-    experience: "4 años en desarrollo de hardware embebido",
-    skills: ["C", "C++", "Arduino"],
-    photo: "img/carlos.jpg"
+    title: "Diseñador UX/UI",
+    bio: "Diseño interfaces centradas en el usuario y experiencias memorables.",
+    skills: ["Figma", "Sketch", "Adobe XD"],
+    image: "img/carlos.jpg"
   },
   {
-    name: "Laura Sánchez",
-    initials: "LS",
-    contact: "laura.sanchez@gmail.com",
-    education: "Diseño Gráfico - Universidad Tadeo",
-    experience: "6 años como diseñadora UX/UI",
-    skills: ["Figma", "Adobe XD", "HTML", "CSS"],
-    photo: "img/laura.jpg"
+    name: "Laura Torres",
+    initials: "LT",
+    title: "Desarrolladora Mobile",
+    bio: "Creo aplicaciones móviles con React Native y Flutter.",
+    skills: ["React Native", "Flutter", "Firebase"],
+    image: "img/laura.jpg"
   },
   {
-    name: "David Torres",
-    initials: "DT",
-    contact: "david.torres@gmail.com",
-    education: "Ingeniería Mecatrónica - Universidad Distrital",
-    experience: "3 años como desarrollador de software embebido",
-    skills: ["Python", "Raspberry Pi", "Node.js"],
-    photo: "img/david.jpg"
+    name: "María Ruiz",
+    initials: "MR",
+    title: "Especialista en Ciberseguridad",
+    bio: "Protegiendo infraestructuras digitales con pasión y estrategia.",
+    skills: ["Firewall", "Pentesting", "SIEM"],
+    image: "img/maria.jpg"
+  },
+  {
+    name: "Andrés López",
+    initials: "AL",
+    title: "Administrador de Sistemas",
+    bio: "Gestiono servidores, redes y soluciones empresariales con eficiencia.",
+    skills: ["Linux", "Windows Server", "Azure"],
+    image: "img/andres.jpg"
   }
 ];
