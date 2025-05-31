@@ -79,3 +79,26 @@ document.addEventListener("DOMContentLoaded", () => {
   // Renderiza todos los perfiles al cargar
   renderProfiles(profiles);
 });
+
+// Filtrado en tiempo real
+document.getElementById("searchInput").addEventListener("input", function () {
+  const searchValue = this.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const name = card.querySelector("h2").textContent.toLowerCase();
+    if (name.includes(searchValue)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+
+// Mostrar detalles al hacer clic en una tarjeta
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", function () {
+    this.classList.toggle("show-details");
+  });
+});
+
