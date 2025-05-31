@@ -1,19 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("lista-perfiles");
   const inputBusqueda = document.getElementById("buscador");
+  const filtroSkill = document.getElementById("filtro-skill");
 
-  // Asegúrate de tener el array "profiles" declarado en algún lugar accesible
-  // Por ejemplo: 
-  // const profiles = [
-  //   { name: "Ana", image: "ana.jpg", title: "Desarrolladora", bio: "Bio...", skills: ["JS", "CSS"], initials: "A" },
-  //   ...
-  // ];
+  // Ejemplo: Debes tener el array profiles cargado desde data.js o similar
+  // const profiles = [...]
 
   // Función para activar lightbox al hacer click en imagen
   function setupLightbox() {
     document.querySelectorAll('.card img').forEach(img => {
       img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation(); // Para que no dispare el toggle detalles
         const overlay = document.createElement('div');
         overlay.className = 'lightbox';
         overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
@@ -22,6 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.addEventListener('click', () => {
           overlay.remove();
         });
+      });
+    });
+  }
+
+  // Mostrar / ocultar detalles al hacer click en la tarjeta
+  function setupCardDetails() {
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('show-details');
       });
     });
   }
@@ -52,53 +59,28 @@ document.addEventListener("DOMContentLoaded", () => {
       contenedor.appendChild(card);
     });
 
-    // Activa la lightbox después de renderizar
     setupLightbox();
+    setupCardDetails();
   }
 
-  // Función para buscar perfiles
-  function buscarPerfiles() {
+  // Función para filtrar perfiles por texto y skill
+  function filtrarPerfiles() {
     const texto = inputBusqueda.value.trim().toLowerCase();
+    const skill = filtroSkill.value;
 
-    const filtrados = profiles.filter(perfil =>
-      perfil.name.toLowerCase().includes(texto) ||
-      perfil.initials.toLowerCase().includes(texto)
-    );
+    const filtrados = profiles.filter(perfil => {
+      const coincideTexto = perfil.name.toLowerCase().includes(texto) || perfil.initials.toLowerCase().includes(texto);
+      const coincideSkill = skill === "" || perfil.skills.includes(skill);
+      return coincideTexto && coincideSkill;
+    });
 
     renderProfiles(filtrados);
   }
 
-  // Eventos para la búsqueda
-  inputBusqueda.addEventListener("input", buscarPerfiles);
-  inputBusqueda.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      buscarPerfiles();
-    }
-  });
+  // Eventos para filtros
+  inputBusqueda.addEventListener("input", filtrarPerfiles);
+  filtroSkill.addEventListener("change", filtrarPerfiles);
 
-  // Renderiza todos los perfiles al cargar
+  // Renderizar perfiles inicialmente
   renderProfiles(profiles);
 });
-
-// Filtrado en tiempo real
-document.getElementById("searchInput").addEventListener("input", function () {
-  const searchValue = this.value.toLowerCase();
-  const cards = document.querySelectorAll(".card");
-
-  cards.forEach(card => {
-    const name = card.querySelector("h2").textContent.toLowerCase();
-    if (name.includes(searchValue)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-});
-
-// Mostrar detalles al hacer clic en una tarjeta
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("click", function () {
-    this.classList.toggle("show-details");
-  });
-});
-
