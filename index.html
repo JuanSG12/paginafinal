@@ -1,24 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Directorio Interno</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de que tu CSS esté en styles.css o cambia el nombre si es necesario -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Directorio de Perfiles</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Directorio Interno</h1>
-    
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Buscar por nombre, extensión o área...">
-    </div>
-    
-    <div class="contact-cards" id="contactCardsContainer">
-      <!-- Las tarjetas se insertarán dinámicamente aquí -->
-    </div>
-  </div>
+  <header>
+    <h1>Directorio de Perfiles</h1>
+    <input type="text" id="buscador" placeholder="Buscar por nombre o iniciales..." />
+    <select id="filtro-skill">
+      <option value="">Todas las habilidades</option>
+      <option value="HTML">HTML</option>
+      <option value="CSS">CSS</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="Node.js">Node.js</option>
+      <option value="Python">Python</option>
+      <option value="SQL">SQL</option>
+      <option value="Power BI">Power BI</option>
+      <option value="Figma">Figma</option>
+      <option value="Sketch">Sketch</option>
+      <option value="Adobe XD">Adobe XD</option>
+      <option value="React Native">React Native</option>
+      <option value="Flutter">Flutter</option>
+      <option value="Firebase">Firebase</option>
+      <option value="Firewall">Firewall</option>
+      <option value="Pentesting">Pentesting</option>
+      <option value="SIEM">SIEM</option>
+      <option value="Linux">Linux</option>
+      <option value="Windows Server">Windows Server</option>
+      <option value="Azure">Azure</option>
+    </select>
+    <button id="toggle-tema">🌙 Cambiar tema</button>
+  </header>
 
-  <script src="script.js"></script> <!-- Asegúrate de que tu JS esté en script.js o cambia el nombre si es necesario -->
+  <main>
+    <div id="lista-perfiles"></div>
+
+    <!-- Sección adicional solicitada -->
+    <div class="container">
+      <h1>Directorio Interno</h1>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Buscar por nombre, extensión o área...">
+      </div>
+      <div class="contact-cards" id="contactCardsContainer">
+        <!-- Las tarjetas se insertarán dinámicamente aquí -->
+      </div>
+    </div>
+    <!-- Fin de la sección adicional -->
+  </main>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
+
