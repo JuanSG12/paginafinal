@@ -1,13 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("lista-perfiles");
   const inputBusqueda = document.getElementById("buscador");
-  const filtroSkill = document.getElementById("filtro-skill");
-  const toggleTema = document.getElementById("toggle-tema");
 
-  // Verifica que existan los elementos y datos
-  if (!contenedor || !inputBusqueda || !filtroSkill || !toggleTema || typeof profiles === "undefined") {
-    console.error("Error: Elementos o datos no disponibles.");
-    return;
+  // Asegúrate de tener el array "profiles" declarado en algún lugar accesible
+  // Por ejemplo: 
+  // const profiles = [
+  //   { name: "Ana", image: "ana.jpg", title: "Desarrolladora", bio: "Bio...", skills: ["JS", "CSS"], initials: "A" },
+  //   ...
+  // ];
+
+  // Función para activar lightbox al hacer click en imagen
+  function setupLightbox() {
+    document.querySelectorAll('.card img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        const overlay = document.createElement('div');
+        overlay.className = 'lightbox';
+        overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener('click', () => {
+          overlay.remove();
+        });
+      });
+    });
   }
 
   // Función para renderizar perfiles
@@ -33,39 +49,26 @@ document.addEventListener("DOMContentLoaded", () => {
           <button onclick="alert('CV de ${perfil.name}')">📄 Ver CV</button>
         </div>
       `;
-
-      // Evento para lightbox en la imagen
-      card.querySelector("img").addEventListener("click", () => {
-        const overlay = document.createElement("div");
-        overlay.className = "lightbox";
-        overlay.innerHTML = `
-          <div class="lightbox-content">
-            <img src="${perfil.image}" alt="${perfil.name}">
-            <button class="close-lightbox">Cerrar ✖️</button>
-          </div>
-        `;
-        document.body.appendChild(overlay);
-
-        overlay.querySelector(".close-lightbox").addEventListener("click", () => {
-          document.body.removeChild(overlay);
-        });
-      });
-
       contenedor.appendChild(card);
     });
+
+    // Activa la lightbox después de renderizar
+    setupLightbox();
   }
 
   // Función para buscar perfiles
   function buscarPerfiles() {
     const texto = inputBusqueda.value.trim().toLowerCase();
+
     const filtrados = profiles.filter(perfil =>
       perfil.name.toLowerCase().includes(texto) ||
       perfil.initials.toLowerCase().includes(texto)
     );
+
     renderProfiles(filtrados);
   }
 
-  // Eventos de búsqueda
+  // Eventos para la búsqueda
   inputBusqueda.addEventListener("input", buscarPerfiles);
   inputBusqueda.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
@@ -73,6 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Mostrar todos los perfiles inicialmente
+  // Renderiza todos los perfiles al cargar
   renderProfiles(profiles);
 });
