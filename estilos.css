@@ -1,4 +1,4 @@
-/* ==== TU PARTE (CONSERVADA Y MEJORADA) ==== */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +23,7 @@ h1 {
   color: #2c3e50;
 }
 
-/* ==== BARRA DE BÚSQUEDA ==== */
+/* Barra de búsqueda */
 .search-bar {
   text-align: center;
   margin-bottom: 2rem;
@@ -45,7 +45,7 @@ h1 {
   box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
 }
 
-/* ==== TARJETAS DE CONTACTO ==== */
+/* Tarjetas */
 .contact-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -80,7 +80,7 @@ h1 {
   color: #555;
 }
 
-/* ==== DETALLES ADICIONALES EN LAS TARJETAS ==== */
+/* Detalles adicionales ocultos inicialmente */
 .card .details {
   display: none;
   margin-top: 0.8rem;
@@ -93,7 +93,7 @@ h1 {
   display: block;
 }
 
-/* ==== ANIMACIÓN AL MOSTRAR DETALLES ==== */
+/* Animación */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -105,7 +105,7 @@ h1 {
   }
 }
 
-/* ==== RESPONSIVE DESIGN ==== */
+/* Responsivo */
 @media (max-width: 600px) {
   #searchInput {
     width: 95%;
