@@ -3,13 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputBusqueda = document.getElementById("buscador");
   const filtroSkill = document.getElementById("filtro-skill");
 
-  // Suponiendo que tienes un array llamado "profiles" disponible
-  // Ejemplo mínimo:
-  // const profiles = [
-  //   { name: "Ana", image: "ana.jpg", title: "Dev Frontend", bio: "Bio...", skills: ["JavaScript", "CSS"], initials: "A" },
-  //   ...
-  // ];
-
   function setupLightbox() {
     document.querySelectorAll('.card img').forEach(img => {
       img.style.cursor = 'zoom-in';
@@ -26,8 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setupCardDetails() {
     document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('click', () => {
+      const toggleBtn = card.querySelector('.btn-toggle-cv');
+      const details = card.querySelector('.details');
+
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que dispare el evento de la tarjeta
         card.classList.toggle('show-details');
+        const isVisible = card.classList.contains('show-details');
+        toggleBtn.textContent = isVisible ? "🔽 Ocultar CV" : "📄 Ver CV";
       });
     });
   }
@@ -51,7 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="skills"><strong>Habilidades:</strong> ${perfil.skills.join(", ")}</p>
         <div class="card-buttons">
           <button onclick="alert('Contacto de ${perfil.name}')">📧 Contactar</button>
-          <button onclick="alert('CV de ${perfil.name}')">📄 Ver CV</button>
+          <button class="btn-toggle-cv">📄 Ver CV</button>
+        </div>
+        <div class="details">
+          <p><strong>CV de ${perfil.name}</strong></p>
+          <ul>
+            <li><strong>Nombre:</strong> ${perfil.name}</li>
+            <li><strong>Puesto:</strong> ${perfil.title}</li>
+            <li><strong>Bio:</strong> ${perfil.bio}</li>
+            <li><strong>Habilidades:</strong> ${perfil.skills.join(", ")}</li>
+          </ul>
         </div>
       `;
       contenedor.appendChild(card);
