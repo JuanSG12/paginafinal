@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const details = card.querySelector('.details');
 
       toggleBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // Evita que dispare el evento de la tarjeta
+        e.stopPropagation();
         card.classList.toggle('show-details');
         const isVisible = card.classList.contains('show-details');
         toggleBtn.textContent = isVisible ? "🔽 Ocultar CV" : "📄 Ver CV";
@@ -42,6 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
     lista.forEach(perfil => {
       const card = document.createElement("div");
       card.className = "card fade-in";
+
+      const enlaces = (perfil.cvLinks && perfil.cvLinks.length > 0)
+        ? `<p><strong>Enlaces:</strong></p>
+           <ul class="cv-links">
+             ${perfil.cvLinks.map(link => `<li><a href="${link.url}" target="_blank">${link.text}</a></li>`).join("")}
+           </ul>`
+        : "";
+
       card.innerHTML = `
         <img src="${perfil.image}" alt="${perfil.name}">
         <h2>${perfil.name}</h2>
@@ -60,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <li><strong>Bio:</strong> ${perfil.bio}</li>
             <li><strong>Habilidades:</strong> ${perfil.skills.join(", ")}</li>
           </ul>
+          ${enlaces}
         </div>
       `;
       contenedor.appendChild(card);

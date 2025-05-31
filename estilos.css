@@ -254,3 +254,21 @@ header {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+.cv-links {
+  margin-top: 0.5em;
+  padding-left: 1em;
+  list-style-type: disc;
+}
+
+.cv-links li a {
+  color: #007acc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cv-links li a:hover {
+  color: #005b99;
+  text-decoration: underline;
+}
+

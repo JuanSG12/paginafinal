@@ -6,14 +6,11 @@ const profiles = [
     bio: "Desarrolladora web con experiencia en frontend y backend.",
     skills: ["HTML", "CSS", "JavaScript", "Node.js"],
     image: "img/ana.jpg",
-    cv: `
-      <ul>
-        <li><strong>Experiencia:</strong> 5 años desarrollando aplicaciones web full-stack.</li>
-        <li><strong>Educación:</strong> Ingeniería de Sistemas - Universidad Nacional.</li>
-        <li><strong>Certificaciones:</strong> Node.js, JavaScript Avanzado.</li>
-        <li><strong>Idiomas:</strong> Español, Inglés.</li>
-      </ul>
-    `
+    cvLinks: [
+      { text: "Descargar CV (PDF)", url: "https://drive.google.com/file/d/1tjiPAkQf0EhZwmbWplMUhhOHMkUAPLPW/view?usp=drive_link" },
+      { text: "Portafolio Web", url: "https://ana.dev" },
+      { text: "LinkedIn", url: "https://linkedin.com/in/anagomez" }
+    ]
   },
   {
     name: "Luis Martínez",
@@ -22,14 +19,10 @@ const profiles = [
     bio: "Apasionado por encontrar patrones y transformar datos en decisiones.",
     skills: ["Python", "SQL", "Power BI"],
     image: "img/luis.jpg",
-    cv: `
-      <ul>
-        <li><strong>Experiencia:</strong> 4 años en análisis de datos y visualización.</li>
-        <li><strong>Educación:</strong> Estadística - Universidad de los Andes.</li>
-        <li><strong>Certificaciones:</strong> Data Science con Python, Power BI Expert.</li>
-        <li><strong>Idiomas:</strong> Español, Inglés técnico.</li>
-      </ul>
-    `
+    cvLinks: [
+      { text: "Descargar CV (PDF)", url: "https://drive.google.com/file/d/1WBrNigYHq9wwOuiEYu8WEdQXuW3dYb2D/view?usp=drive_link" },
+      { text: "LinkedIn", url: "https://linkedin.com/in/luis-martinez" }
+    ]
   },
   {
     name: "Carlos Pérez",
@@ -38,14 +31,10 @@ const profiles = [
     bio: "Diseño interfaces centradas en el usuario y experiencias memorables.",
     skills: ["Figma", "Sketch", "Adobe XD"],
     image: "img/carlos.jpg",
-    cv: `
-      <ul>
-        <li><strong>Experiencia:</strong> 6 años creando interfaces para startups y empresas grandes.</li>
-        <li><strong>Educación:</strong> Diseño Gráfico - Universidad Jorge Tadeo Lozano.</li>
-        <li><strong>Certificaciones:</strong> UX Research, UI Advanced Design.</li>
-        <li><strong>Idiomas:</strong> Español, Portugués.</li>
-      </ul>
-    `
+    cvLinks: [
+      { text: "Behance", url: "https://behance.net/carlosp" },
+      { text: "Descargar Portafolio", url: "https://drive.google.com/file/d/1hGm3vqUW0P0hy1Bel0pLjj7fR-PbUTtG/view?usp=drive_link" }
+    ]
   },
   {
     name: "Laura Torres",
@@ -54,14 +43,10 @@ const profiles = [
     bio: "Creo aplicaciones móviles con React Native y Flutter.",
     skills: ["React Native", "Flutter", "Firebase"],
     image: "img/laura.jpg",
-    cv: `
-      <ul>
-        <li><strong>Experiencia:</strong> 3 años desarrollando apps móviles multiplataforma.</li>
-        <li><strong>Educación:</strong> Ingeniería de Software - Universidad Distrital.</li>
-        <li><strong>Certificaciones:</strong> Flutter Intermediate, React Native Fundamentals.</li>
-        <li><strong>Idiomas:</strong> Español, Inglés intermedio.</li>
-      </ul>
-    `
+    cvLinks: [
+      { text: "GitHub", url: "https://github.com/lauratorres" },
+      { text: "CV en PDF", url: "https://drive.google.com/file/d/1b9cTfNp1HKjjb1hqNBEKSiULSK_CyaIQ/view?usp=drive_link" }
+    ]
   },
   {
     name: "María Ruiz",
@@ -70,14 +55,10 @@ const profiles = [
     bio: "Protegiendo infraestructuras digitales con pasión y estrategia.",
     skills: ["Firewall", "Pentesting", "SIEM"],
     image: "img/maria.jpg",
-    cv: `
-      <ul>
-        <li><strong>Experiencia:</strong> 7 años en seguridad informática y auditorías.</li>
-        <li><strong>Educación:</strong> Ingeniería de Telecomunicaciones - Universidad Militar.</li>
-        <li><strong>Certificaciones:</strong> CEH, CompTIA Security+, ISO 27001.</li>
-        <li><strong>Idiomas:</strong> Español, Inglés avanzado.</li>
-      </ul>
-    `
+    cvLinks: [
+      { text: "Certificaciones", url: "https://drive.google.com/file/d/1uy6LyfWkgMd2BmHJEodIFCgsXSg7EKXj/view" },
+      { text: "LinkedIn", url: "https://linkedin.com/in/mariaruiz" }
+    ]
   },
   {
     name: "Andrés López",
@@ -86,13 +67,8 @@ const profiles = [
     bio: "Gestiono servidores, redes y soluciones empresariales con eficiencia.",
     skills: ["Linux", "Windows Server", "Azure"],
     image: "img/andres.jpg",
-    cv: `
-      <ul>
-        <li><strong>Experiencia:</strong> 10 años en administración de sistemas empresariales.</li>
-        <li><strong>Educación:</strong> Tecnología en Redes - SENA.</li>
-        <li><strong>Certificaciones:</strong> Azure Administrator, Red Hat Certified Engineer.</li>
-        <li><strong>Idiomas:</strong> Español.</li>
-      </ul>
-    `
+    cvLinks: [
+      { text: "Descargar CV (PDF)", url: "https://drive.google.com/file/d/1G8Ov3NTappVWKMvMGcEAdh2dlJ6xYHez/view?usp=drive_link" }
+    ]
   }
 ];
