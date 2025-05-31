@@ -240,6 +240,7 @@ header {
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.7);
 }
+
 .details {
   display: none;
   margin-top: 1em;
@@ -272,3 +273,81 @@ header {
   text-decoration: underline;
 }
 
+/* ====== CSS NUEVO AÑADIDO ====== */
+/* Scroll suave para todo el documento */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilo para mensajes de carga o estados */
+.loading-message {
+  font-style: italic;
+  text-align: center;
+  color: #aad4df;
+  margin-top: 2rem;
+}
+
+/* Estilo para botones deshabilitados */
+button:disabled {
+  background-color: #777;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Iconos SVG dentro de botones */
+.card-buttons button svg {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  fill: white;
+  transition: fill 0.3s ease;
+}
+
+.card-buttons button:hover svg {
+  fill: #cce7ef;
+}
+
+/* Tooltip simple */
+.tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3498db;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 10000;
+  transition: opacity 0.3s ease;
+}
+
+/* Foco accesible para inputs y botones */
+input:focus, button:focus {
+  outline: 2px solid #4ca1af;
+  outline-offset: 2px;
+}
+
+/* Scrollbar estilizado para navegadores webkit */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2c3e50;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4ca1af;
+  border-radius: 5px;
+  border: 2px solid #2c3e50;
+}

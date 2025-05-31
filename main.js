@@ -2,18 +2,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("lista-perfiles");
   const inputBusqueda = document.getElementById("buscador");
   const filtroSkill = document.getElementById("filtro-skill");
+  const btnToggleTema = document.getElementById("toggle-tema");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox.querySelector("img");
 
   function setupLightbox() {
     document.querySelectorAll('.card img').forEach(img => {
       img.style.cursor = 'zoom-in';
       img.addEventListener('click', (e) => {
         e.stopPropagation();
-        const overlay = document.createElement('div');
-        overlay.className = 'lightbox';
-        overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
-        document.body.appendChild(overlay);
-        overlay.addEventListener('click', () => overlay.remove());
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.style.display = 'flex';
       });
+    });
+
+    // Cerrar lightbox al hacer click fuera de la imagen
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxImg) {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+        lightboxImg.alt = '';
+      }
     });
   }
 
@@ -91,6 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProfiles(filtrados);
   }
 
+  // Función para cambiar tema
+  function toggleTema() {
+    document.body.classList.toggle("modo-oscuro");
+    // Cambiar texto del botón según estado
+    const esOscuro = document.body.classList.contains("modo-oscuro");
+    btnToggleTema.textContent = esOscuro ? "☀️ Cambiar a claro" : "🌙 Cambiar a oscuro";
+  }
+
+  btnToggleTema.addEventListener("click", toggleTema);
   inputBusqueda.addEventListener("input", filtrarPerfiles);
   filtroSkill.addEventListener("change", filtrarPerfiles);
 
