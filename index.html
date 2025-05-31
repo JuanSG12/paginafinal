@@ -3,87 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Perfiles</title>
+  <title>Perfiles Interactivos</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <header>Mi Portafolio</header>
+  <header>Perfiles Interactivos</header>
 
   <div class="search-container">
-    <input type="text" id="buscador" placeholder="Buscar..." />
+    <input type="text" id="buscador" placeholder="Buscar por nombre..." />
     <select id="filtro-skill">
-      <option value="">Filtrar por skill</option>
-      <option value="html">HTML</option>
-      <option value="css">CSS</option>
-      <option value="js">JavaScript</option>
-      <option value="python">Python</option>
-      <option value="java">Java</option>
+      <option value="all">Todas las skills</option>
     </select>
-    <button id="toggle-tema">Cambiar Tema</button>
+    <button id="toggle-tema">Modo oscuro</button>
   </div>
 
-  <main class="profiles-grid">
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180" alt="Perfil 1" />
-      <h2>Juan Pérez</h2>
-      <h3>Desarrollador Frontend</h3>
-      <p>Apasionado por crear interfaces limpias y funcionales.</p>
-      <div class="skills">HTML, CSS, JavaScript</div>
-      <div class="card-buttons">
-        <button>Contacto</button>
-        <button>Portfolio</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180" alt="Perfil 2" />
-      <h2>Ana Gómez</h2>
-      <h3>Diseñadora UI/UX</h3>
-      <p>Diseñando experiencias de usuario atractivas e intuitivas.</p>
-      <div class="skills">Figma, Adobe XD, CSS</div>
-      <div class="card-buttons">
-        <button>Contacto</button>
-        <button>Portfolio</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180" alt="Perfil 3" />
-      <h2>Carlos Díaz</h2>
-      <h3>Desarrollador Backend</h3>
-      <p>Especialista en bases de datos y APIs REST.</p>
-      <div class="skills">Node.js, Python, MongoDB</div>
-      <div class="card-buttons">
-        <button>Contacto</button>
-        <button>Portfolio</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180" alt="Perfil 4" />
-      <h2>Lucía Martínez</h2>
-      <h3>Data Scientist</h3>
-      <p>Analista y visualizadora de datos con pasión por machine learning.</p>
-      <div class="skills">Python, R, SQL</div>
-      <div class="card-buttons">
-        <button>Contacto</button>
-        <button>Portfolio</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180" alt="Perfil 5" />
-      <h2>David Torres</h2>
-      <h3>DevOps Engineer</h3>
-      <p>Automatizando despliegues y mejorando la infraestructura.</p>
-      <div class="skills">Docker, Kubernetes, AWS</div>
-      <div class="card-buttons">
-        <button>Contacto</button>
-        <button>Portfolio</button>
-      </div>
-    </div>
-
+  <main class="profiles-grid" id="profilesGrid">
+    <!-- Las tarjetas de perfil se generarán aquí con JS -->
   </main>
 
-  <footer>© 2025 Mi Portafolio</footer>
+  <footer>© 2025 Mi Proyecto Cool</footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
