@@ -2,7 +2,7 @@ const profiles = [
   {
     name: "Ana Gómez",
     initials: "AG",
-    title: "Ingeniera de Software",
+    title: "Ingeniera de software",
     bio: "Desarrolladora web con experiencia en frontend y backend.",
     skills: ["HTML", "CSS", "JavaScript", "Node.js"],
     image: "img/ana.jpg"
@@ -10,7 +10,7 @@ const profiles = [
   {
     name: "Luis Martínez",
     initials: "LM",
-    title: "Analista de Datos",
+    title: "Analista de datos",
     bio: "Apasionado por encontrar patrones y transformar datos en decisiones.",
     skills: ["Python", "SQL", "Power BI"],
     image: "img/luis.jpg"
@@ -26,7 +26,7 @@ const profiles = [
   {
     name: "Laura Torres",
     initials: "LT",
-    title: "Desarrolladora Mobile",
+    title: "Desarrolladora mobile",
     bio: "Creo aplicaciones móviles con React Native y Flutter.",
     skills: ["React Native", "Flutter", "Firebase"],
     image: "img/laura.jpg"
@@ -34,7 +34,7 @@ const profiles = [
   {
     name: "María Ruiz",
     initials: "MR",
-    title: "Especialista en Ciberseguridad",
+    title: "Especialista en ciberseguridad",
     bio: "Protegiendo infraestructuras digitales con pasión y estrategia.",
     skills: ["Firewall", "Pentesting", "SIEM"],
     image: "img/maria.jpg"
@@ -42,7 +42,7 @@ const profiles = [
   {
     name: "Andrés López",
     initials: "AL",
-    title: "Administrador de Sistemas",
+    title: "Administrador de sistemas",
     bio: "Gestiono servidores, redes y soluciones empresariales con eficiencia.",
     skills: ["Linux", "Windows Server", "Azure"],
     image: "img/andres.jpg"

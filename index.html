@@ -1,47 +1,227 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Directorio de Perfiles</title>
-  <link rel="stylesheet" href="estilos.css" />
-</head>
-<body>
-  <header>
-    <h1>Directorio de perfiles</h1>
- HEAD
-<input type="text" id="buscador" placeholder="Buscar por nombre o inicial..." />
-<main id="lista-perfiles"></main>
-c6a2b6e (Actualización de estilos y funcionalidades visuales)
-    <select id="filtro-skill">
-      <option value="">Todas las habilidades</option>
-      <option value="HTML">HTML</option>
-      <option value="CSS">CSS</option>
-      <option value="JavaScript">JavaScript</option>
-      <option value="Node.js">Node.js</option>
-      <option value="Python">Python</option>
-      <option value="SQL">SQL</option>
-      <option value="Power BI">Power BI</option>
-      <option value="Figma">Figma</option>
-      <option value="Sketch">Sketch</option>
-      <option value="Adobe XD">Adobe XD</option>
-      <option value="React Native">React Native</option>
-      <option value="Flutter">Flutter</option>
-      <option value="Firebase">Firebase</option>
-      <option value="Firewall">Firewall</option>
-      <option value="Pentesting">Pentesting</option>
-      <option value="SIEM">SIEM</option>
-      <option value="Linux">Linux</option>
-      <option value="Windows Server">Windows Server</option>
-      <option value="Azure">Azure</option>
-    </select>
-    <button id="toggle-tema">🌙 Cambiar tema</button>
-  </header>
-  <main>
-    <div id="lista-perfiles"></div>
-  </main>
-  <script src="data.js"defer></script>
-<script src="main.js" defer></script>
+/* Reset y base */
+* {
+  box-sizing: border-box;
+}
 
-</body>
-</html>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ddd;
+}
+
+header {
+  background-color: #6200ea;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Contenedor de búsqueda */
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+#buscador {
+  flex-grow: 1;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 1px solid #aaa;
+  transition: border-color 0.3s;
+}
+
+#buscador:focus {
+  border-color: #6200ea;
+  outline: none;
+}
+
+#filtro-skill {
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  border: 1px solid #aaa;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+#filtro-skill:focus {
+  border-color: #6200ea;
+  outline: none;
+}
+
+#toggle-tema {
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+#toggle-tema:hover {
+  background-color: #7e3ff2;
+}
+
+/* Grid de perfiles */
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tarjetas */
+.card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 1rem 1.5rem 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .card {
+  background: #1e1e1e;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+  color: #ddd;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(98,0,234,0.3);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+.card h2 {
+  margin: 0.3rem 0 0.5rem;
+  font-size: 1.6rem;
+  color: #6200ea;
+}
+
+body.dark-mode .card h2 {
+  color: #bb86fc;
+}
+
+.card h3 {
+  margin: 0 0 0.8rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #555;
+}
+
+body.dark-mode .card h3 {
+  color: #aaa;
+}
+
+.card p {
+  margin: 0.3rem 0;
+  line-height: 1.4;
+}
+
+.card .skills {
+  font-weight: 600;
+  margin-top: 0.8rem;
+  color: #444;
+}
+
+body.dark-mode .card .skills {
+  color: #ccc;
+}
+
+.card-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-buttons button {
+  flex-grow: 1;
+  margin: 0 0.3rem;
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #6200ea;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-buttons button:hover {
+  background-color: #7e3ff2;
+}
+
+.no-result {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999;
+  grid-column: 1 / -1;
+}
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+  animation: zoomIn 0.3s ease forwards;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
