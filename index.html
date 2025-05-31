@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfiles Interactivos</title>
-  <link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Directorio de Perfiles</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-
   <header>
-    Explorador de Perfiles
-  </header>
-
-  <div class="search-container">
-    <input type="text" id="buscador" placeholder="Buscar por nombre o descripción...">
+    <h1>Directorio de Perfiles</h1>
+    <input type="text" id="buscador" placeholder="Buscar por nombre o iniciales..." />
     <select id="filtro-skill">
-      <option value="">Filtrar por habilidad</option>
+      <option value="">Todas las habilidades</option>
+      <option value="HTML">HTML</option>
+      <option value="CSS">CSS</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="Node.js">Node.js</option>
+      <option value="Python">Python</option>
+      <option value="SQL">SQL</option>
+      <option value="Power BI">Power BI</option>
+      <option value="Figma">Figma</option>
+      <option value="Sketch">Sketch</option>
+      <option value="Adobe XD">Adobe XD</option>
+      <option value="React Native">React Native</option>
+      <option value="Flutter">Flutter</option>
+      <option value="Firebase">Firebase</option>
+      <option value="Firewall">Firewall</option>
+      <option value="Pentesting">Pentesting</option>
+      <option value="SIEM">SIEM</option>
+      <option value="Linux">Linux</option>
+      <option value="Windows Server">Windows Server</option>
+      <option value="Azure">Azure</option>
     </select>
-    <button id="toggle-tema">Cambiar Tema</button>
-  </div>
-
+    <button id="toggle-tema">🌙 Cambiar tema</button>
+  </header>
   <main>
-    <div class="profiles-grid" id="contenedor-perfiles"></div>
+    <div id="lista-perfiles"></div>
   </main>
-
-  <footer>
-    Hecho con ❤️ para mostrar perfiles dinámicos.
-  </footer>
-
   <script src="data.js"></script>
   <script src="main.js"></script>
 </body>
