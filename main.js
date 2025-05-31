@@ -3,28 +3,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputBusqueda = document.getElementById("buscador");
   const filtroSkill = document.getElementById("filtro-skill");
 
-  // Ejemplo: Debes tener el array profiles cargado desde data.js o similar
-  // const profiles = [...]
+  // Suponiendo que tienes un array llamado "profiles" disponible
+  // Ejemplo mínimo:
+  // const profiles = [
+  //   { name: "Ana", image: "ana.jpg", title: "Dev Frontend", bio: "Bio...", skills: ["JavaScript", "CSS"], initials: "A" },
+  //   ...
+  // ];
 
-  // Función para activar lightbox al hacer click en imagen
   function setupLightbox() {
     document.querySelectorAll('.card img').forEach(img => {
       img.style.cursor = 'zoom-in';
       img.addEventListener('click', (e) => {
-        e.stopPropagation(); // Para que no dispare el toggle detalles
+        e.stopPropagation();
         const overlay = document.createElement('div');
         overlay.className = 'lightbox';
         overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
         document.body.appendChild(overlay);
-
-        overlay.addEventListener('click', () => {
-          overlay.remove();
-        });
+        overlay.addEventListener('click', () => overlay.remove());
       });
     });
   }
 
-  // Mostrar / ocultar detalles al hacer click en la tarjeta
   function setupCardDetails() {
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Función para renderizar perfiles
   function renderProfiles(lista) {
     contenedor.innerHTML = "";
 
@@ -63,24 +61,21 @@ document.addEventListener("DOMContentLoaded", () => {
     setupCardDetails();
   }
 
-  // Función para filtrar perfiles por texto y skill
   function filtrarPerfiles() {
     const texto = inputBusqueda.value.trim().toLowerCase();
     const skill = filtroSkill.value;
 
     const filtrados = profiles.filter(perfil => {
-      const coincideTexto = perfil.name.toLowerCase().includes(texto) || perfil.initials.toLowerCase().includes(texto);
-      const coincideSkill = skill === "" || perfil.skills.includes(skill);
-      return coincideTexto && coincideSkill;
+      const textoMatch = perfil.name.toLowerCase().includes(texto) || perfil.initials.toLowerCase().includes(texto);
+      const skillMatch = skill === "" || perfil.skills.includes(skill);
+      return textoMatch && skillMatch;
     });
 
     renderProfiles(filtrados);
   }
 
-  // Eventos para filtros
   inputBusqueda.addEventListener("input", filtrarPerfiles);
   filtroSkill.addEventListener("change", filtrarPerfiles);
 
-  // Renderizar perfiles inicialmente
   renderProfiles(profiles);
 });
